@@ -3,7 +3,8 @@
 node express documentation
 
 ### L-4-globalObjectAndModuleSystem ###
-Global Object in Node.js is kind of window object in Browser. Each js file is a module in node.js. # types of module present in Node.
+**concept**
+Global Object in Node.js is kind of window object in Browser. Each js file is a module in node.js. 3 types of module present in Node.
 1. Core Module
 2. Custom/own module
 3. External module/npm module <br />
