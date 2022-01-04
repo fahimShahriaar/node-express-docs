@@ -12,7 +12,7 @@ Global Object in Node.js is kind of window object in Browser. Each js file is a 
 Each modules are wrapped in a hidden module wrapper function which is nothing but a IIFE function. This function have some parameters which are **exports, require, module, __filename, __dirname**. These are objects. That's why we can access these objects anywhere in our node application. <br />
 
 To use our own module in root module we have to export the module from our module file and import it in our root module. <br />
-
+Code example: https://github.com/fem97/node-express-docs/tree/main/L-4-globalObjectAndModuleSystem <br />
 
 ### L-5-nodeServerAndCoreModules ###
 **Core Modules** <br />
