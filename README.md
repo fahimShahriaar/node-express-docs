@@ -22,3 +22,4 @@ Code example: https://github.com/fem97/node-express-docs/tree/main/L-4-globalObj
 **Path:** To get pathname, directory name. Manipulate path in server. <br />
 
 ### L-6-streamAndBuffer ###
+In terms of large data you should use streaming and buffering. The main concept is data is delivered and received in a small pieces of chunk. Example: Suppose you have a large text file size 10mb. If you don't stream the file to send or receive the process will be slow. The full file will be loaded based on the internet speed and you get the full data. But in terms of streaming the concept is - you send or receive small pieces of data or chunk of data and you can see or manipulate the data. 
