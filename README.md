@@ -19,4 +19,6 @@ Code example: https://github.com/fem97/node-express-docs/tree/main/L-4-globalObj
 **FS Module:** Read, Write and manipulate file system. Read, write with sync and async way. <br />
 **HTTP:** Create HTTP server and send response. [Note: you can use express.js for this] <br />
 **OS:** There are lots of method in OS module. To get CPU information, free memory, host name, arch, osPlatform and many more information about system use OS module. <br />
-**Path:** To get pathname, directory name. Manipulate path in server.
+**Path:** To get pathname, directory name. Manipulate path in server. <br />
+
+### L-6-streamAndBuffer ###
