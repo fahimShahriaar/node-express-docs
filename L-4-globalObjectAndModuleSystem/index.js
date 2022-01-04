@@ -1,5 +1,5 @@
-// console.log(__dirname);
-// console.log(__filename);
+console.log(__dirname);
+console.log(__filename);
 
 const peopleFile = require('./people');
 console.log(peopleFile.people);
