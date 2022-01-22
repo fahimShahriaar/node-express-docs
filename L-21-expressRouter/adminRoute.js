@@ -1,12 +1,13 @@
 const express = require('express');
-const adminRoute = express.Router();
 
-adminRoute.get('/', (req, res) => {
-    res.send("Admin root route")
+const adminRouter = express.Router();
+
+adminRouter.get('/', (req, res) => {
+    res.send("Admin Dashboard");
 })
 
-adminRoute.get('/setting', (req, res) => {
-    res.send("Admin setting")
+adminRouter.get('/login', (req, res) => {
+    res.send("Admin Login");
 })
 
-module.exports = adminRoute;
+module.exports = adminRouter;
