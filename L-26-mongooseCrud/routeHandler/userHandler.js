@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const userSchema = require("../schemas/userSchema");
+const { route } = require("./todoHandler");
 const User = new mongoose.model("User", userSchema);
 
 // SIGNUP
@@ -62,5 +63,10 @@ router.post("/login", async (req, res) => {
         });
     }
 });
+
+router.get('/', async (req, res) => {
+    const users = await User.find({});
+    res.send(users);
+})
 
 module.exports = router;
