@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
-const todoHandler = require('./routeHandler/todoHandler')
+const todoHandler = require('./routeHandler/todoHandler');
+const userHandler = require('./routeHandler/userHandler');
 
 // express app initialization
 const app = express();
@@ -14,6 +15,7 @@ mongoose
 
 // Application routes
 app.use('/todo', todoHandler);
+app.use('/user', userHandler);
 
 
 // Default Error Handler
@@ -27,4 +29,4 @@ function errorHandler(err, req, res, next) {
 app.use(errorHandler);
 
 // listening server
-app.listen(5000, () => console.log("Server running on port: 5000"));
+app.listen(5001, () => console.log("Server running on port: 5000"));
