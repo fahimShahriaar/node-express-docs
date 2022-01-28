@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
                 const token = jwt.sign({
                     username: user[0].username,
                     userId: user[0]._id,
-                }, process.env.JWT_SECRET, {
+                }, "process.env.JWT_SECRET", {
                     expiresIn: '1h'
                 });
 
@@ -48,12 +48,12 @@ router.post("/login", async (req, res) => {
                 });
             } else {
                 res.status(401).json({
-                    "error": "Authetication failed!"
+                    "error": "wrong pass. Authetication failed!"
                 });
             }
         } else {
             res.status(401).json({
-                "error": "Authetication failed!"
+                "error": "User Not found! Authetication failed!"
             });
         }
     } catch {
