@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require("mongoose");
+const dotenv = require('dotenv');
 const todoHandler = require('./routeHandler/todoHandler');
 const userHandler = require('./routeHandler/userHandler');
 
 // express app initialization
 const app = express();
+dotenv.config();
 app.use(express.json());
 
 // database connect with mongoose
@@ -29,4 +31,4 @@ function errorHandler(err, req, res, next) {
 app.use(errorHandler);
 
 // listening server
-app.listen(5001, () => console.log("Server running on port: 5000"));
+app.listen(5001, () => console.log("Server running on port: 5001"));
