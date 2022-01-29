@@ -4,9 +4,12 @@ const router = express.Router();
 const todoSchema = require('../schemas/todoSchema');
 const Todo = new mongoose.model("Todo", todoSchema);
 
+const checkLogin = require('../middlewares/checkLogin');
 
 // get all TODOs
-router.get('/', async (req, res) => {
+router.get('/', checkLogin, async (req, res) => {
+    console.log(req.username);
+    console.log(req.userid);
     await Todo.find({})
         .select({
             _id: 0,
