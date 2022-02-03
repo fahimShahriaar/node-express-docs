@@ -9,7 +9,7 @@ const checkLogin = require('../middlewares/checkLogin');
 // get all TODOs
 router.get('/', checkLogin, async (req, res) => {
     console.log(req.username);
-    console.log(req.userid);
+    console.log(req.userId);
     await Todo.find({})
         .select({
             _id: 0,
@@ -56,19 +56,22 @@ router.get("/:id", async (req, res) => {
 });
 
 // Post A TODO
-router.post('/', async (req, res) => {
-    const newTodo = new Todo(req.body);
-    await newTodo.save((err) => {
-        if (err) {
-            res.status(500).json({
-                error: "This is a server side error"
-            })
-        } else {
-            res.status(200).json({
-                message: "Todo was inserted successfully!"
-            })
-        }
-    })
+router.post('/', checkLogin, async (req, res) => {
+    try {
+        const newTodo = new Todo({
+            ...req.body,
+            user: req.userId
+        });
+        await newTodo.save();
+        res.status(200).json({
+            message: "Todo was inserted successfully!"
+        })
+    } catch (error) {
+        res.status(500).json({
+            error: "This is a server side error"
+        })
+    }
+
 })
 
 // POST multiple TODOs
