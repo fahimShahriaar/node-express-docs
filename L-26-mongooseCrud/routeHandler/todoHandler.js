@@ -11,6 +11,7 @@ router.get('/', checkLogin, async (req, res) => {
     console.log(req.username);
     console.log(req.userId);
     await Todo.find({})
+        .populate("user", "name username")
         .select({
             _id: 0,
             __v: 0
