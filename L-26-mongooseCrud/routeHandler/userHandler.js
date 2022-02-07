@@ -65,7 +65,8 @@ router.post("/login", async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    const users = await User.find({});
+    const users = await User.find({}, { __v: 0 })
+        .populate("todos", "title description date -_id");
     res.send(users);
 })
 
