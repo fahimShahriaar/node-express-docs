@@ -8,26 +8,20 @@ const checkLogin = require('../middlewares/checkLogin');
 
 // get all TODOs
 router.get('/', checkLogin, async (req, res) => {
-    console.log(req.username);
-    console.log(req.userId);
-    await Todo.find({})
-        .populate("user", "name username")
-        .select({
-            _id: 0,
-            __v: 0
-        })
-        .limit(3)
-        .exec((err, doc) => {
-            if (err) {
-                res.status(500).json({
-                    error: err
-                })
-            } else {
-                res.status(200).json({
-                    todos: doc
-                })
-            }
-        })
+    try {
+        console.log(req.username);
+        console.log(req.userId);
+        const result = await Todo.find({})
+            .populate("user", "name username -_id")
+            .select({
+                _id: 0,
+                __v: 0
+            })
+            .limit(3);
+        res.send(result);
+    } catch (error) {
+        res.send(error);
+    }
 })
 
 // GET A TODO by ID
@@ -41,19 +35,6 @@ router.get("/:id", async (req, res) => {
             error: `There was a server side error! ${error}`,
         })
     }
-    // await Todo.find({ _id: req.params.id }, (err, data) => {
-    //     console.log(data);
-    //     if (err) {
-    //         res.status(500).json({
-    //             error: "There was a server side error!",
-    //         });
-    //     } else {
-    //         res.status(200).json({
-    //             result: data,
-    //             message: "Success",
-    //         });
-    //     }
-    // });
 });
 
 // Post A TODO
